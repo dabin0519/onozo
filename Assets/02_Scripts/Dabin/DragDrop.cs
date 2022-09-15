@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerDownHandler{
+public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerDownHandler, IInitializePotentialDragHandler{
     [SerializeField] private Canvas canvas;
+    public Vector3 startPosition;
 
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
@@ -17,7 +18,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnBeginDrag");
+        //Debug.Log("OnBeginDrag");
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
     }
@@ -29,18 +30,24 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag");
+        //Debug.Log("OnEndDrag");
         canvasGroup.alpha = 1;
         canvasGroup.blocksRaycasts = true;
+        rectTransform.anchoredPosition = startPosition;
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown");
+        //Debug.Log("OnPointerDown");
     }
 
     public void OnDrop(PointerEventData eventData)
     {
         throw new System.NotImplementedException();
+    }
+
+    public void OnInitializePotentialDrag(PointerEventData eventData)
+    {
+        startPosition = rectTransform.anchoredPosition;
     }
 }
