@@ -7,17 +7,8 @@ public class FormerMap : MonoBehaviour
 {
     public GameObject Former;
     public GameObject[] Slots;
-    public Text txt;
 
     int i = 3;
-
-    public void Currect()
-    {
-        if(i == 0)
-        {
-            txt.text = "";
-        }
-    }
 
     public void ButtonClickUp()
     {
@@ -34,6 +25,14 @@ public class FormerMap : MonoBehaviour
         {
             i--;
             Former.transform.position = Slots[i].transform.position;
+        }
+    }
+
+    public void currectFormer()
+    {
+        if(i == 1)
+        {
+            Debug.Log("Á¤´ä");
         }
     }
 }
