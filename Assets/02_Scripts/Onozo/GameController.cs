@@ -11,6 +11,10 @@ public class GameController : MonoBehaviour
     [SerializeField] string pw = "1234";
     [SerializeField] string sceneName;
     [SerializeField] SpriteRenderer line1;
+    [SerializeField] SpriteRenderer line2;
+    [SerializeField] SpriteRenderer line3;
+    [SerializeField] SpriteRenderer line4;
+    [SerializeField] SpriteRenderer line5;
     SpriteRenderer spriteRenderer;
     private void Start()
     {
@@ -32,7 +36,19 @@ public class GameController : MonoBehaviour
     public void SceneLoad(){
         SceneManager.LoadScene(sceneName);
     }
-    public void ColorChange(){
+    public void ColorChange1(){
         line1.GetComponent<Renderer>().material.color = Color.black;
+    }
+    public void ColorChange2(){
+        line2.GetComponent<Renderer>().material.color = Color.black;
+    }
+    public void ColorChange3(){
+        line3.GetComponent<Renderer>().material.color = Color.black;
+    }
+    public void ColorChange4(){
+        line4.GetComponent<Renderer>().material.color = Color.black;
+    }
+    public void ColorChange5(){
+        line5.GetComponent<Renderer>().material.color = Color.black;
     }
 }
