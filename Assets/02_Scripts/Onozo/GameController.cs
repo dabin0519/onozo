@@ -10,18 +10,19 @@ public class GameController : MonoBehaviour
     [SerializeField] Text text;
     [SerializeField] string pw = "1234";
     [SerializeField] string sceneName;
-    [SerializeField] SpriteRenderer line1;
-    [SerializeField] SpriteRenderer line2;
-    [SerializeField] SpriteRenderer line3;
-    [SerializeField] SpriteRenderer line4;
-    [SerializeField] SpriteRenderer line5;
-    SpriteRenderer spriteRenderer;
+    [SerializeField] GameObject line1;
+    [SerializeField] GameObject line2;
+    [SerializeField] GameObject line3;
+    [SerializeField] GameObject line4;
+    [SerializeField] GameObject line5;
     bool a = false, b = false, c = false, d = false, e = false, correct = false;
+    bool lightA = false, lightB = false, lightC = false, lightD = false, lightE = false, lightF = false;
     [SerializeField] GameObject wow;
     private void Start()
     {
         field.text = "";
         text.text = "비밀번호를 입력하세요";
+        wow.SetActive(false);
     }
     private void Update()
     {
@@ -40,24 +41,74 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
     public void ColorChange1(){
-        line1.GetComponent<Renderer>().material.color = Color.black;
-        a = true;
+        if(!lightA)
+        {
+            line1.SetActive(false);
+            a = false;
+            lightA = true;
+        }
+        else
+        {
+            line1.SetActive(true);
+            a = true;
+            lightA = false;
+        }
     }
     public void ColorChange2(){
-        line2.GetComponent<Renderer>().material.color = Color.black;
-        b = true;
+        if(!lightB)
+        {
+            line2.SetActive(false);
+            b = false;
+            lightB = true;
+        }
+        else
+        {
+            line2.SetActive(true);
+            b = true;
+            lightB = false;
+        }
     }
     public void ColorChange3(){
-        line3.GetComponent<Renderer>().material.color = Color.black;
-        c = true;
+        if(!lightC)
+        {
+            line3.SetActive(false);
+            c = false;
+            lightC = true;
+        }
+        else
+        {
+            line3.SetActive(true);
+            c = true;
+            lightC = false;
+        }
     }
     public void ColorChange4(){
-        line4.GetComponent<Renderer>().material.color = Color.black;
-        d = true;
+        if(!lightD)
+        {
+            line4.SetActive(false);
+            d = false;
+            lightD = true;
+        }
+        else
+        {
+            line4.SetActive(true);
+            d = true;
+            lightD = false;
+        }
     }
     public void ColorChange5(){
-        line5.GetComponent<Renderer>().material.color = Color.black;
-        e = true;
+        if(!lightE)
+        {
+            line5.SetActive(false);
+            e = false;
+            lightE = true;
+        }
+        else
+        {
+            line5.SetActive(true);
+            e = true;
+            lightE = false;
+        }
     }
 
     public void correctA(){
