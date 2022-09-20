@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour
     [SerializeField] SpriteRenderer line4;
     [SerializeField] SpriteRenderer line5;
     SpriteRenderer spriteRenderer;
+    bool a = false, b = false, c = false, d = false, e = false, correct = false;
+    [SerializeField] GameObject wow;
     private void Start()
     {
         field.text = "";
@@ -23,6 +25,7 @@ public class GameController : MonoBehaviour
     }
     private void Update()
     {
+        correctA();
         if(field.text == pw){
             text.text = "열렸습니다.";
         }
@@ -38,17 +41,31 @@ public class GameController : MonoBehaviour
     }
     public void ColorChange1(){
         line1.GetComponent<Renderer>().material.color = Color.black;
+        a = true;
     }
     public void ColorChange2(){
         line2.GetComponent<Renderer>().material.color = Color.black;
+        b = true;
     }
     public void ColorChange3(){
         line3.GetComponent<Renderer>().material.color = Color.black;
+        c = true;
     }
     public void ColorChange4(){
         line4.GetComponent<Renderer>().material.color = Color.black;
+        d = true;
     }
     public void ColorChange5(){
         line5.GetComponent<Renderer>().material.color = Color.black;
+        e = true;
+    }
+
+    public void correctA(){
+        if(a && b && c && d && e){
+            correct = true;
+        }
+        if(correct == true){
+            wow.SetActive(true);
+        }
     }
 }
