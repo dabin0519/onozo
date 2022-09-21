@@ -12,6 +12,7 @@ public class MainPuzzle : MonoBehaviour
     public GameObject post4;
     public GameObject post5;
     public GameObject locked;
+    public GameObject GoEDS;
 
     public bool[] caseIn;
 
@@ -27,7 +28,8 @@ public class MainPuzzle : MonoBehaviour
     public void Case1()
     {
         post1.SetActive(true);
-        for(int i = 0 ; i < button.Length; i++)
+        GoEDS.SetActive(false);
+        for (int i = 0 ; i < button.Length; i++)
         {
             button[i].SetActive(false);
         }
@@ -36,6 +38,7 @@ public class MainPuzzle : MonoBehaviour
     public void Case3()
     {
         post4.SetActive(true);
+        GoEDS.SetActive(false);
         for (int i = 0; i < button.Length; i++)
         {
             button[i].SetActive(false);
@@ -45,6 +48,7 @@ public class MainPuzzle : MonoBehaviour
     public void Case10()
     {
         post3.SetActive(true);
+        GoEDS.SetActive(false);
         for (int i = 0; i < button.Length; i++)
         {
             button[i].SetActive(false);
@@ -54,6 +58,7 @@ public class MainPuzzle : MonoBehaviour
     public void Case7()
     {
         post5.SetActive(true);
+        GoEDS.SetActive(false);
         for (int i = 0; i < button.Length; i++)
         {
             button[i].SetActive(false);
@@ -63,6 +68,7 @@ public class MainPuzzle : MonoBehaviour
     public void Case13()
     {
         post2.SetActive(true);
+        GoEDS.SetActive(false);
         for (int i = 0; i < button.Length; i++)
         {
             button[i].SetActive(false);
@@ -76,6 +82,7 @@ public class MainPuzzle : MonoBehaviour
 
     public void OutCase()
     {
+        GoEDS.SetActive(true);
         post1.SetActive(false);
         post2.SetActive(false);
         post3.SetActive(false);
@@ -90,7 +97,9 @@ public class MainPuzzle : MonoBehaviour
     IEnumerator lockedTxt()
     {
         locked.SetActive(true);
+        GoEDS.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         locked.SetActive(false);
+        GoEDS.SetActive(true);
     }
 }
