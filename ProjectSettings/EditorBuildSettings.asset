@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01_Scenes/Dabin.unity
     guid: 598ff98b0f9d9d74f87bbc4a46ea0060
+  - enabled: 1
+    path: Assets/01_Scenes/Onozo.unity
+    guid: 61e95a7ce4a83bc42b34b9b73a781f91
   m_configObjects: {}
