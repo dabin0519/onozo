@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01_Scenes/Stage/ddd.unity
     guid: fba8e7f6be06d014c843b0f40bff88be
+  - enabled: 1
+    path: Assets/01_Scenes/Dabin.unity
+    guid: 598ff98b0f9d9d74f87bbc4a46ea0060
   m_configObjects: {}

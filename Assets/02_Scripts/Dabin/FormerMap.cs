@@ -7,6 +7,8 @@ public class FormerMap : MonoBehaviour
 {
     public GameObject Former;
     public GameObject[] Slots;
+    public GameObject password3nd;
+    public GameObject text;
 
     int i = 3;
 
@@ -32,7 +34,25 @@ public class FormerMap : MonoBehaviour
     {
         if(i == 1)
         {
-            Debug.Log("Á¤´ä");
+            StartCoroutine(Password());
         }
+        else
+        {
+            StartCoroutine(Text());
+        }
+    }
+
+    IEnumerator Text()
+    {
+        text.SetActive(true);
+        yield return new WaitForSeconds(0.25f);
+        text.SetActive(false);
+    }
+
+    IEnumerator Password()
+    {
+        password3nd.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        password3nd.SetActive(false);
     }
 }
