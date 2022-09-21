@@ -5,54 +5,73 @@ using UnityEngine.UI;
 
 public class MainPuzzle : MonoBehaviour
 {
-    public Button[] Case;
-    public bool[] caseIn;
+    public GameObject[] button;
     public GameObject post1;
     public GameObject post2;
     public GameObject post3;
     public GameObject post4;
     public GameObject post5;
+    public GameObject locked;
 
-    int i = 0, j = 0, k = 0;
+    public bool[] caseIn;
 
     private void Awake()
     {
         caseIn[10] = true;
         caseIn[3] = true;
-        i = Random.Range(0,2);
-        caseIn[i] = true;
-        j = Random.Range(4,9);
-        caseIn[j] = true;
-        k = Random.Range(11,13);
-        caseIn[k] = true;
+        caseIn[1] = true;
+        caseIn[7] = true;
+        caseIn[13] = true;
+    }
+
+    public void Case1()
+    {
+        post1.SetActive(true);
+        for(int i = 0 ; i < button.Length; i++)
+        {
+            button[i].SetActive(false);
+        }
+    }
+
+    public void Case3()
+    {
+        post4.SetActive(true);
+        for (int i = 0; i < button.Length; i++)
+        {
+            button[i].SetActive(false);
+        }
+    }
+
+    public void Case10()
+    {
+        post3.SetActive(true);
+        for (int i = 0; i < button.Length; i++)
+        {
+            button[i].SetActive(false);
+        }
+    }
+
+    public void Case7()
+    {
+        post5.SetActive(true);
+        for (int i = 0; i < button.Length; i++)
+        {
+            button[i].SetActive(false);
+        }
+    }
+
+    public void Case13()
+    {
+        post2.SetActive(true);
+        for (int i = 0; i < button.Length; i++)
+        {
+            button[i].SetActive(false);
+        }
     }
 
     public void CaseLock()
     {
-        if(Case[i] && caseIn[i])
-        { 
-            post3.SetActive(true);
-        }
-        else if(Case[j] && caseIn[j])
-        {
-            post4.SetActive(true);
-        }
-        else if (Case[k] && caseIn[k])
-        {
-            post5.SetActive(true);
-        }
-        else if (Case[10] && caseIn[10])
-        {
-            post1.SetActive(true);
-        }
-        else if (Case[3] && caseIn[3])
-        {
-            post2.SetActive(true);
-        }
-        else
-        {
-            Debug.Log("lock");
-        }
+        StartCoroutine(lockedTxt());
     }
 
     public void OutCase()
@@ -62,5 +81,16 @@ public class MainPuzzle : MonoBehaviour
         post3.SetActive(false);
         post4.SetActive(false);
         post5.SetActive(false);
+        for (int i = 0; i < button.Length; i++)
+        {
+            button[i].SetActive(true);
+        }
+    }
+
+    IEnumerator lockedTxt()
+    {
+        locked.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        locked.SetActive(false);
     }
 }
