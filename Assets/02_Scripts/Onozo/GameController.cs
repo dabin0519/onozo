@@ -36,7 +36,7 @@ public class GameController : MonoBehaviour
         
         correctA();
         if(field.text == pw){
-            Password1st.SetActive(true);
+            StartCoroutine(Problem1());
         }
         else{
             if(field.text.Length > 6){
@@ -44,6 +44,14 @@ public class GameController : MonoBehaviour
             }
             text.text = "가열된 물질에서 빛이 방출되어 관찰되는 \n 스펙트럼을 방출스펙트럼이라고 한다.";
         }
+    }
+
+    IEnumerator Problem1()
+    {
+        field.text = "";
+        Password1st.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        Password1st.SetActive(false);
     }
 
     #region ===================================================================================================
@@ -54,8 +62,15 @@ public class GameController : MonoBehaviour
 
     public void correctA(){
         if(a && b && c && d && e && f){
-            wow.SetActive(true);
+            StartCoroutine(Problem2());
         }
+    }
+
+    IEnumerator Problem2()
+    {
+        wow.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        wow.SetActive(false);
     }
 
     public void Button2(int i){

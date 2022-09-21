@@ -13,6 +13,7 @@ public class MainPuzzle : MonoBehaviour
     public GameObject post5;
     public GameObject locked;
     public GameObject GoEDS;
+    public GameObject GoOnozo;
 
     public bool[] caseIn;
 
@@ -29,6 +30,7 @@ public class MainPuzzle : MonoBehaviour
     {
         post1.SetActive(true);
         GoEDS.SetActive(false);
+        GoOnozo.SetActive(false);
         for (int i = 0 ; i < button.Length; i++)
         {
             button[i].SetActive(false);
@@ -39,6 +41,7 @@ public class MainPuzzle : MonoBehaviour
     {
         post4.SetActive(true);
         GoEDS.SetActive(false);
+        GoOnozo.SetActive(false);
         for (int i = 0; i < button.Length; i++)
         {
             button[i].SetActive(false);
@@ -49,6 +52,7 @@ public class MainPuzzle : MonoBehaviour
     {
         post3.SetActive(true);
         GoEDS.SetActive(false);
+        GoOnozo.SetActive(false);
         for (int i = 0; i < button.Length; i++)
         {
             button[i].SetActive(false);
@@ -59,6 +63,7 @@ public class MainPuzzle : MonoBehaviour
     {
         post5.SetActive(true);
         GoEDS.SetActive(false);
+        GoOnozo.SetActive(false);
         for (int i = 0; i < button.Length; i++)
         {
             button[i].SetActive(false);
@@ -69,6 +74,7 @@ public class MainPuzzle : MonoBehaviour
     {
         post2.SetActive(true);
         GoEDS.SetActive(false);
+        GoOnozo.SetActive(false);
         for (int i = 0; i < button.Length; i++)
         {
             button[i].SetActive(false);
@@ -88,6 +94,7 @@ public class MainPuzzle : MonoBehaviour
         post3.SetActive(false);
         post4.SetActive(false);
         post5.SetActive(false);
+        GoOnozo.SetActive(true);
         for (int i = 0; i < button.Length; i++)
         {
             button[i].SetActive(true);
@@ -98,8 +105,10 @@ public class MainPuzzle : MonoBehaviour
     {
         locked.SetActive(true);
         GoEDS.SetActive(false);
+        GoOnozo.SetActive(false);
         yield return new WaitForSeconds(0.5f);
         locked.SetActive(false);
         GoEDS.SetActive(true);
+        GoOnozo.SetActive(true);
     }
 }
