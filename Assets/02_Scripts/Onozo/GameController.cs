@@ -16,18 +16,19 @@ public class GameController : MonoBehaviour
     [SerializeField] GameObject line4;
     [SerializeField] GameObject line5;
     bool SetActiveOn;
-    bool a = false, b = false, c = false, d = false, e = false, correct = false;
+    public bool a, b, c , d , e ,correct = false,f = true;
     bool lightA = false, lightB = false, lightC = false, lightD = false, lightE = false, lightF = false;
     [SerializeField] GameObject wow;
 
     public GameObject[] buttonList;
     public GameObject[] lineList;
+    public GameObject Password1st;
 
     private void Start()
     {
         
         field.text = "";
-        text.text = "비밀번호를 입력하세요";
+        text.text = "가열된 물질에서 빛이 방출되어 관찰되는 스펙트럼을 방출스펙트럼이라고 한다.";
         wow.SetActive(false);
     }
     private void Update()
@@ -35,41 +36,30 @@ public class GameController : MonoBehaviour
         
         correctA();
         if(field.text == pw){
-            text.text = "열렸습니다.";
+            Password1st.SetActive(true);
         }
         else{
-            if(field.text.Length > 4){
+            if(field.text.Length > 6){
                 field.text = "";
             }
-            text.text = "비밀번호를 입력하세요";
+            text.text = "가열된 물질에서 빛이 방출되어 관찰되는 \n 스펙트럼을 방출스펙트럼이라고 한다.";
         }
     }
+
+    #region ===================================================================================================
+
     public void SceneLoad(){
         SceneManager.LoadScene(sceneName);
     }
-    public void ColorChange1(){
-        if(!lightA)
-        {
-            line1.SetActive(false);
-            a = false;
-            lightA = true;
-        }
-        else
-        {
-            line1.SetActive(true);
-            lightA = false;
-        }
-    }
+
     public void correctA(){
-        if(a && b && c && d && e){
-            correct = true;
-        }
-        if(correct == true){
+        if(a && b && c && d && e && f){
             wow.SetActive(true);
         }
-        
     }
+
     public void Button2(int i){
+
         if(i == 0){
             if(!lightA){
                 lineList[i].SetActive(false);
@@ -84,48 +74,48 @@ public class GameController : MonoBehaviour
         }
         else if(i == 1){
             if(lightB){
-                b = true;
+                b = false;
                 lightB = false;
                 lineList[i].SetActive(false);
             }
             else{
-                b = false;
+                b = true;
                 lightB = true;
                 lineList[i].SetActive(true);
             }
         }
         else if(i == 3){
             if(lightC){
-                c = true;
+                c = false;
                 lightC = false;
                 lineList[i].SetActive(false);
             }
             else{
-                c = false;
+                c = true;
                 lightC = true;
                 lineList[i].SetActive(true);
             }
         }
         else if(i == 6){
             if(lightD){
-                d = true;
+                d = false;
                 lightD = false;
                 lineList[i].SetActive(false);
             }
             else{
-                d = false;
+                d = true;
                 lightD = true;
                 lineList[i].SetActive(true);
             }
         }
         else if(i == 14){
             if(lightE){
-                e = true;
+                e = false;
                 lightE = false;
                 lineList[i].SetActive(false);
             }
             else{
-                e = false;
+                e = true;
                 lightE = true;
                 lineList[i].SetActive(true);
             }
@@ -133,12 +123,16 @@ public class GameController : MonoBehaviour
         else{
             if(SetActiveOn){
                 lineList[i].SetActive(false);
+                f = true;
                 SetActiveOn = false;
             }
             else {
                 lineList[i].SetActive(true);
+                f = false;
                 SetActiveOn = true;
             }
         }
+
+        #endregion
     }
 }
