@@ -62,6 +62,7 @@ public class GameController : MonoBehaviour
 
     public void correctA(){
         if(a && b && c && d && e && f){
+            Debug.Log("왜 안되는데");
             StartCoroutine(Problem2());
         }
     }
